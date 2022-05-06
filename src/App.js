@@ -1,37 +1,19 @@
-import { Button, styled, Typography } from "@mui/material";
-import { Settings, Add } from "@mui/icons-material";
-
-const BlueButton = styled(Button) (({theme}) =>  ({
-  backgroundColor: "skyblue",
-  color: "#888",
-  margin: 5,
-  "&:hover": {
-    backgroundColor: "lightblue",
-  },
-  "&:disabled ": {
-    backgroundColor: "gray",
-    color: "white",
-  },
-}));
+import { Sidebar } from "./components/Sidebar";
+import { Rightbar } from "./components/Rightbar";
+import { Feed } from "./components/Feed";
+import { Box, Stack } from "@mui/material";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
-    <div>
-      <Button variant="text">Text</Button>
-      <Button startIcon={<Settings />} variant="contained" color="secondary">
-        Settings
-      </Button>
-      <Button startIcon={<Add />} color="success" variant="contained">
-        Add new item
-      </Button>
-      <Button variant="outlined" disabled>
-        Outlined
-      </Button>
-
-      <Typography variant="h3">It's my first MUI,happy to learn</Typography>
-      <BlueButton>My Unique Button</BlueButton>
-      <BlueButton>Another Unique Button</BlueButton>
-    </div>
+    <Box>
+      <Navbar/>
+      <Stack direction="row" spacing={3} justifyContent="space-between" >
+        <Sidebar />
+        <Feed />
+        <Rightbar />
+      </Stack>
+    </Box>
   );
 }
 
